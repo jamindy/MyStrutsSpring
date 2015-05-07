@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//JAMINDY//DTD BEAN//CN"
+        "http://www.csdn.net/jamindy/beans.dtd">
+<beans>
+    <!-- isLazy-->
+    <bean id="test1" class="com.tear.Test1" lazy-init="true"></bean>
+    <bean id="test1-2" class="com.tear.Test2" lazy-init="default"></bean>
+    <bean id="test1-3" class="com.tear.Test3" lazy-init="false"></bean>
+    <!-- getConstructorElements-->
+    <bean id="test2" class="com.tear.Test4">
+        <constructor-arg>
+            <value type="java.lang.String">tear</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="java.lang.String">1989229</value>
+        </constructor-arg>
+    </bean>
+    <!-- getAttribute -->
+    <bean id="test3" class="com.tear.Test5"></bean>
+    <!-- isSingleton -->
+    <bean id="test4-1" class="com.tear.Test6" singleton="false"></bean>
+    <bean id="test4-2" class="com.tear.Test7"></bean>
+    <!-- getConstructorArgs -->
+    <bean id="test5" class="com.tear.Test8">
+        <constructor-arg>
+            <value type="java.lang.String">wstear</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="java.lang.String">1989229</value>
+        </constructor-arg>
+    </bean>
+    <!-- getPropertyElements-->
+    <bean id="test6" class="com.tear.Test9">
+        <property name="test1">
+            <ref bean="test1"/>
+        </property>
+        <property name="test2">
+            <ref bean="test2"/>
+        </property>
+    </bean>
+    <!-- getPropertyValues -->
+    <bean id="test7" class="com.tear.Test10">
+        <property name="test1">
+            <value type="java.lang.String">wstear</value>
+        </property>
+        <property name="test2">
+            <value type="java.lang.String">1989229</value>
+        </property>
+    </bean>
+    <!-- getPropertyRef -->
+    <bean id="test8" class="com.tear.Test11">
+        <property name="test1">
+            <ref bean="test1"/>
+        </property>
+        <property name="test2">
+            <ref bean="test2"/>
+        </property>
+    </bean>
+
+    <!-- getConstructorRef-->
+    <bean id="test9" class="com.tear.Test12">
+        <constructor-arg>
+            <ref bean="test1"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="test2"/>
+        </constructor-arg>
+    </bean>
+
+    <!-- isAutowire -->
+    <bean id="test10-1" class="com.tear.Test13" autowire="byName">
+    </bean>
+    <bean id="test10-2" class="com.tear.Test14" autowire="no">
+    </bean>
+    <bean id="test10-3" class="com.tear.Test15" autowire="default">
+    </bean>
+    <bean id="test11" class="com.tear.Test11">
+        <constructor-arg>
+            <value type="java.lang.String">tear</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="test11"/>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- getPropertyValue -->
+    <bean id="test12" class="com.tear.Test17">
+        <property name="property1">
+            <value type="java.lang.String">tear</value>
+        </property>
+        <property name="property2">
+            <ref bean="test13"/>
+        </property>
+        <property name="property3">
+            <value type="java.lang.Integer">22</value>
+        </property>
+        <property name="property4">
+            <collection type="list">
+                <value type="java.lang.Integer">1212</value>
+                <value type="java.lang.String">tear</value>
+            </collection>
+        </property>
+    </bean>
+    <bean class="com.tear.Test18" id="test13"></bean>
+</beans>

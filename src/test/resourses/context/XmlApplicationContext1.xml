@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//JAMINDY//DTD BEAN//CN"
+	"http://www.csdn.net/jamindy/beans.dtd">
+<beans >
+	<bean id="test1" class="com.jamindy.IOC.object.TestContextObject1"></bean>
+	
+	<bean id="test2" class="com.jamindy.IOC.object.TestContextObject2">
+		<constructor-arg>
+			<value type="java.lang.String">jamindy</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.Integer">22</value> 
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="test1"/> 
+		</constructor-arg>
+	</bean>
+	
+	<bean id="test3" 
+	class="com.jamindy.IOC.object.TestContextObject1" singleton="false">
+	
+	</bean>
+	
+	<!-- 测试autowire -->
+	<bean class="com.jamindy.IOC.object.TestContextObject1"
+		id="object1">
+	</bean>
+	<bean id="test4" 
+		class="com.jamindy.IOC.object.TestContextObject3"
+		autowire="byName">
+	</bean>
+	<!-- 测试lazy-init -->
+	<bean id="test5" class="com.jamindy.IOC.object.TestContextObject3" lazy-init="true">
+	</bean>
+
+    <!-- 测试设值注入 -->
+	<bean id="test6" class="com.jamindy.IOC.object.TestContextObject3">
+		<property name="name">
+			<value type="java.lang.String">jamindy</value>
+		</property>
+		<property name="age">
+			<value type="java.lang.Integer">22</value>
+		</property>
+		<property name="object1">
+			<ref bean="object1"/>
+		</property>
+	</bean>
+	<bean id="test7" class="com.jamindy.IOC.object.TestContextObject4" >
+		<property name="list">
+			<collection type="list">
+				<value type="java.lang.String">jamindy</value>
+				<value type="java.lang.String">12</value>
+			</collection>
+		</property>
+		<property name="set">
+			<collection type="set">
+				<value type="java.lang.String">zhangsan</value>
+				<value type="java.lang.String">lisi</value>
+			</collection>
+		</property>
+		<property name="refTest">
+			<collection type="list">
+				<ref bean="test1"></ref>
+				<ref bean="test2"></ref>
+			</collection>
+		</property>
+		
+	</bean>
+	
+</beans>
