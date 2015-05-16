@@ -1,4 +1,4 @@
-package com.jamindy.AOP.aspectJannotation;
+package com.jamindy.AOP.aspectJannotationaop;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

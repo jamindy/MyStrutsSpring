@@ -1,34 +1,22 @@
-package com.jamindy.AOP.aspectJannotation;
+package com.jamindy.AOP.aspectJaop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-
 /**
- * Created by admin on 15-5-16.
+ * Created by admin on 15-5-15.
  */
 @Aspect
 @Component
-public class AnnotationAspect {
+public class HelloAspect {
 
-//    @Before：前置增强
-//
-//    @After：后置增强
-//
-//    @Around：环绕增强
-//
-//    @AfterThrowing：抛出增强
-//
-//    @DeclareParents：引入增强
-
-    @Around("@annotation(com.jamindy.AOP.aspectJannotation.Tag)")
-    public Object arround(ProceedingJoinPoint pjp) throws Throwable{
+    @Around("execution(* com.jamindy.AOP.proxy.impl.MyHello.sayG*(..))")
+    public Object around(ProceedingJoinPoint pjp) throws Throwable{
         before();
         Object result = pjp.proceed();
         after();
-
         return result;
     }
 

@@ -1,4 +1,4 @@
-package com.jamindy.AOP.aspectJ;
+package com.jamindy.AOP.aspectJaop;
 
 import com.jamindy.AOP.proxy.iface.Hello;
 import org.springframework.context.ApplicationContext;
